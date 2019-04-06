@@ -17,7 +17,7 @@ class CreateCurso extends Migration
             $table->increments('id_curso');
             $table->string('nome', 250);
             $table->datetime('data_criacao');
-            $table->datetime('data_att')->nullabel();
+            $table->datetime('data_att')->nullable();
             $table->tinyInteger('status');
             $table->integer('carga_horaria');
             $table->string('ementa', 250);

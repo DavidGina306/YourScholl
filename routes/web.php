@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 
 //professores
@@ -27,3 +23,14 @@ Route::get('professores/editar/{id}', 'ProfessorController@edit');
 Route::post('professores/editar', 'ProfessorController@update');
 Route::get('professores/status/{id}/{status}', 'ProfessorController@editStatus');
 Route::post('professores/status/{id}/{status}', 'ProfessorController@editStatus');
+
+
+//cursos
+Route::get('/cursos', 'CursoController@index')->name('index');
+Route::get('cursos/create', 'CursoController@create');
+Route::post('cursos', 'CursoController@store');
+Route::get('cursos/show', 'CursoController@show')->name('professores.show');
+Route::get('cursos/editar/{id}', 'CursoController@edit');
+Route::post('cursos/editar', 'CursoController@update');
+Route::get('cursos/status/{id}/{status}', 'CursoController@editStatus');
+Route::post('cursos/status/{id}/{status}', 'CursoController@editStatus');
