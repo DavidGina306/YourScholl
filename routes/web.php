@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/professores', 'ProfessorController@index')->name('home');
+
+Route::get('professores/create', 'ProfessorController@create');
+
+Route::post('professores', 'ProfessorController@store');

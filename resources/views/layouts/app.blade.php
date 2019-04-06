@@ -4,4 +4,7 @@
 
 @yield('conteudo')
 
+
+
 @include('layouts.includes.footer')
+@yield('scripts')

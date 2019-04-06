@@ -24,6 +24,10 @@
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="{{asset('app-assets/js/validator.js')}}"></script>
+    <script src="{{asset('app-assets/plugins/bower_components/sweetalert/sweetalert.min.js')}}"></script>
+    <script src="{{asset('app-assets/plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js')}}"></script>
+    
     <!-- end - This is for export functionality only -->
     @yield('script')
     <!--Style Switcher -->

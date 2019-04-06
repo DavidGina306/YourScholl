@@ -21,6 +21,8 @@
     <link href="{{ asset('app-assets/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
     <link href="{{ asset('app-assets/css/colors/default.css') }}" id="theme" rel="stylesheet">
+    <link href="{{asset('app-assets/plugins/bower_components/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
