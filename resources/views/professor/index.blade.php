@@ -84,17 +84,13 @@
                                     <input type="text" value="" class="form-control cep" name="cep" id="cep" minlength="9" maxlength="9" placeholder="Preencha com CEP" onblur="pesquisacep(this.value);"  required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-2">
-                                        <button type="button" class="btn btn-danger waves-effect text-left" >Buscar</button>
-
-                                </div>
     
                         </div>
 
                          <div class="form-group">
                             <label for="logradouro" class="control-label col-xs-3 col-sm-3">LOGRADOURO</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control caixa_alta" name="logradouro" id="logradouro" minlength="3" maxlength="3" placeholder="Preencha o Logradouro" required>
+                                <input type="text" class="form-control caixa_alta" name="logradouro" id="logradouro" minlength="2" maxlength="250" placeholder="Preencha o Logradouro" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -102,7 +98,7 @@
                         <div class="form-group">
                                 <label for="bairro" class="control-label col-xs-3 col-sm-3">BAIRRO</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control caixa_alta" name="bairro" id="bairro" minlength="3" maxlength="3" placeholder="Preencha o Bairro" required>
+                                    <input type="text" class="form-control caixa_alta" name="bairro" id="bairro" minlength="2" maxlength="150" placeholder="Preencha o Bairro" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -110,7 +106,7 @@
                         <div class="form-group">
                             <label for="numero" class="control-label col-xs-3 col-sm-3">NUMERO</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" minlength="3" maxlength="3" placeholder="Preencha o Numero" required>
+                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" maxlength="3" placeholder="Preencha o Numero" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -175,7 +171,132 @@
             <!-- /.modal-content -->
         </div>
     </div>
-<!-- /. end modal save -->
+    <!-- END MODAL SAVE -->
+
+
+    <!-- OPEN MODAL EDIT -->
+    <div class="modal fade bs-example-modal-lg" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#2f323e">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myLargeModalLabel" style="color:white">EDIÇÃO DE PROFESSORES</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="f_edit_prof"  name ="f_edit_prof" data-toggle="validator" class="form-horizontal">
+                            {{ csrf_field() }}
+                        <input type="hidden" id="custId" name="custId">
+                        <div class="form-group">
+                            <label for="nome" class="control-label col-xs-3 col-sm-3"> NOME</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control caixa_alta" name="nome_edt" id="nome_edt" minlength="5" maxlength="250" placeholder="Preencha com Nome" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dt_nasc" class="control-label col-xs-3 col-sm-3"> DATA NASCIMENTO</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" name="dt_nasc_edt" id="dt_nasc_edt">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="cep" class="control-label col-xs-3 col-sm-3">CEP</label>
+                                <div class="col-sm-6">
+                                    <input type="text" value="" class="form-control cep" name="cep_edt" id="cep_edt" minlength="9" maxlength="9" placeholder="Preencha com CEP" onblur="pesquisacep(this.value);"  required>
+                                    <div class="help-block with-errors"></div>
+                                </div>    
+                        </div>
+
+                            <div class="form-group">
+                            <label for="logradouro" class="control-label col-xs-3 col-sm-3">LOGRADOURO</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control caixa_alta" name="logradouro_edt" id="logradouro_edt"  maxlength="250" placeholder="Preencha o Logradouro" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="bairro" class="control-label col-xs-3 col-sm-3">BAIRRO</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control caixa_alta" name="bairro_edt" id="bairro_edt"  maxlength="100" placeholder="Preencha o Bairro" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                            <label for="numero" class="control-label col-xs-3 col-sm-3">NUMERO</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control caixa_alta" name="numero_edt" id="numero_edt" minlength="3" maxlength="3" placeholder="Preencha o Numero" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group camposExtras">
+                                <label class=" control-label col-xs-3 col-sm-3" for='selectEstado_edt'>ESTADO</label>
+                                <div class="col-xs-8 col-sm-8">
+    
+                                    <select data-target="#selectCidade_edt" id="selectEstado_edt" name="selectEstado_edt" class="form-control select2 col-xs-9" required>
+    
+                                    </select>
+                                </div>
+                        </div>
+                        
+                        <div class="form-group camposExtras">
+                            <label class=" control-label col-xs-3 col-sm-3" for='selectCidade_edt'>CIDADE</label>
+                            <div class="col-xs-8 col-sm-8">
+
+                                <select id="selectCidade_edt" name="selectCidade_edt" class="form-control select2 col-xs-9" required>
+
+                                </select>
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="form-group">
+                            <label for="cel_edt" class="control-label col-xs-3 col-sm-3">CELULAR</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control celular" name="cel_edt" id="cel_edt" maxlength="14" placeholder="(99)99999-9999" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label for="tel_edt" class="control-label col-xs-3 col-sm-3">TELEFONE</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control telefone" name="tel_edt" id="tel_edt" minlength="13" maxlength="13" placeholder="(99) 9999-9999" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="email_edt" class="control-label col-xs-3 col-sm-3">EMAIL</label>
+                                <div class="col-sm-8">
+                                    <input type="email" class="form-control caixa_alta" name="email_edt" id="email_edt"  maxlength="250" placeholder="Preencha com endereço de email" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnEdit" class="btn btn-primary waves-effect text-left" data-tooltip="tooltip">Guardar</button>
+
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- /. end modal save -->
         
 
 @endsection
@@ -184,8 +305,10 @@
 
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <!-- Adicionando Javascript -->
-    <script type="text/javascript" >
 
+    <!-- CEP -->
+    <script type="text/javascript" >
+        // MODAL SAVE
         $(document).ready(function() {
 
             function limpa_formulário_cep() {
@@ -251,9 +374,75 @@
             });
         });
 
+        //MODAL EDIT CEP
+        $(document).ready(function() {
+
+            function limpa_formulário_cep_edt() {
+                // Limpa valores do formulário de cep.
+                $("#logradouro_edt").val("");
+                $("#bairro_edt").val("");
+                $("#selectCidade_edt").val("");
+                $("#selectEstado_edt").val("");
+                $("#ibge").val("");
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep_edt").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#logradouro_edt").val("...");
+                        $("#bairro_edt").val("...");
+                        $("#selectCidade_edt").val("...");
+                        $("#selectEstado_edt").val("...");
+                        $("#ibge").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#logradouro_edt").val(dados.logradouro);
+                                $("#bairro_edt").val(dados.bairro);
+                                $("#selectEstado_edt").val(dados.uf);
+                                loadCidades("#selectCidade_edt",  $("#selectEstado_edt").val());
+                                $("#selectCidade_edt").val(dados.localidade);
+                                $("#ibge").val(dados.ibge);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep_edt();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep_edt();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep_edt();
+                }
+            });
+        });
+
     </script>
 
-
+    <!-- ESTADOS , CIDADES-->
     <script>
             var estados = [];
 
@@ -340,7 +529,7 @@
     </script>
 
 
-
+    <!-- OPEN MODALS -->
     <script>
         
         $('.celular').mask('(99)99999-9999', {reverse: false});
@@ -351,46 +540,199 @@
         })
         
         function add_prof() {
-
-            $('#f_save_prof')[0].reset();     
+            $("#f_save_prof")[0].reset();
+  
 
             $('#modalsave').modal('show');
+        }
+
+        function edit_prof(id) {
+        
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url:'/professores/editar/'+id,
+                success: function (data, textStatus, jqXHR) {
+                    
+                    $("#custId").val(data.id_professor);
+                    $("#nome_edt").val(data.nome);
+                    $("#dt_nasc_edt").val(data.data_nascimento);
+                    $("#logradouro_edt").val(data.logradouro);
+                    $("#bairro_edt").val(data.bairro);
+                    $("#numero_edt").val(data.numero);
+                    $("#cep_edt").val(data.cep);
+                    $("#numero_edt").val(data.numero);
+                    $("#tel_edt").val(data.telefone);
+                    $("#cel_edt").val(data.celular);
+                    $("#email_edt").val(data.email);
+                    //adress    
+                    loadEstados('#selectEstado_edt');
+                    $("#selectEstado_edt").val(data.estado).change();
+                    loadCidades("#selectCidade_edt",  $("#selectEstado_edt").val());
+                    $("#selectCidade_edt").val(data.cidade).change();                                     
+                    $('#modaledit').modal('show');
+                    
+                },
+                error: function (data, textStatus, errorThrown) {
+                    alert('Error - ' + errorThrown);
+                }
+            });
+
+           // $('#modal_plus').modal('show');
         }
     </script>
 
 
     
-    <!-- SAVE -->
+    <!-- SAVE,EDIT,CHANGE STATUS -->
     <script>
-           
-        $("#btnSave").click(function () {
-                //console.log("save");
-                  url = '/professores'
-                  form = '#f_save_prof';
-                  table = $('#prof_table').DataTable();
-                  $.ajax({
-                        url : url,
-                        type: "POST",
-                        data: $(form).serialize(),
-                        dataType: "JSON",
-                        success: function(data){
-
-                            if($.isEmptyObject(data.error)){
-                                alert(data.success);
-                            }else{
-                                console.log(data.error);
+            function mudar_status(id,nome,status) {
+                table = $('#prof_table').DataTable();
+                swal({
+                    title: "Mudar Status do Professor : "+nome+"?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Sim,Continuar!",
+                    cancelButtonText:"Cancelar",
+                    closeOnConfirm: false
+                },
+                    function () {
+                            $.ajax({
+                            type: "GET",
+                            url:'/professores/status/'+id+"/"+status,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                swal({
+                                  title: "CONFIRMADO!",
+                                  text: "Alteração Realizada com Sucesso.",
+                                  type: "success",
+                                  showCancelButton: false,
+                                  confirmButtonClass: 'btn-success',
+                                  confirmButtonText: 'Aceitar',
+    
+                                }, function(){
+                                  table.ajax.reload();
+                                });
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                swal({
+                                    title: 'AVISO!',
+                                    text: 'Error - ' + errorThrown,
+                                    type: 'warning',
+                                    html: true,
+                                    confirmButtonClass: 'btn-warning',
+                                    confirmButtonText: 'Aceitar',
+                                });
+    
                             }
-                              
-                          },
-                          error: function (jqXHR, textStatus, errorThrown)
-                          {
-                              alert('Error adding / update data'+ errorThrown);
-                          }
-                     });
-      
-          });
+                            });
+    
+                });
+    
+    
+            }   
+        $("#btnSave").click(function () {
+            //console.log("save");
+                url = '/professores'
+                form = '#f_save_prof';
+                table = $('#prof_table').DataTable();
+                $.ajax({
+                    url : url,
+                    type: "POST",
+                    data: $(form).serialize(),
+                    dataType: "JSON",
+                    success: function(data){
 
-    </script>
+                        if($.isEmptyObject(data.error)){
+                            $("#modalsave").modal('hide');
+                                swal({
+                                title: "CONFIRMADO!",
+                                text: "Cadastro Realizado com Sucesso.",
+                                type: "success",
+                                showCancelButton: false,
+                                confirmButtonClass: 'btn-success',
+                                confirmButtonText: 'Aceitar',
+
+                            }, function(){
+                                table.ajax.reload();
+                            });
+                        }else{
+
+                            swal({
+                                title: 'Erro ao Cadastrar!',
+                                text: data.error,
+                                type: 'warning',
+                                html :  true,
+                                confirmButtonClass: 'btn-warning',
+                                confirmButtonText: 'Aceitar',
+                            });
+
+                            console.log(data.error);
+                        }
+                            
+                        },
+                        error: function (jqXHR, textStatus, errorThrown)
+                        {
+                            alert('Error adding / update data'+ errorThrown);
+                        }
+                    });
+
+        });
+
+        $("#btnEdit").click(function () {
+            //console.log("save");
+              id= $('#custId').val();
+              url = '/professores/editar/'
+              form = '#f_edit_prof';
+              table = $('#prof_table').DataTable();
+              $.ajax({
+                url : url,
+                type: "POST",
+                data: $(form).serialize(),
+                dataType: "JSON",
+                success: function(data){
+
+                    if($.isEmptyObject(data.error)){
+                        $("#modalsave").modal('hide');
+                                swal({
+                                title: "CONFIRMADO!",
+                                text: "Alteração Realizada com Sucesso.",
+                                type: "success",
+                                showCancelButton: false,
+                                confirmButtonClass: 'btn-success',
+                                confirmButtonText: 'Aceitar',
+
+                            }, function(){
+                                table.ajax.reload();
+                        });
+                    }else{
+                        
+                        swal({
+                            title: 'Erro ao Cadastrar!',
+                            text: data.error,
+                            type: 'warning',
+                            html :  true,
+                            confirmButtonClass: 'btn-warning',
+                            confirmButtonText: 'Aceitar',
+                        });;
+                    }
+                        
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        alert('Error adding / update data'+ errorThrown);
+                    }
+                });
+
+        });
+
+    
+        
+        
+        
+        </script>
 
     <!-- DATATABLE GET-->
     <script>
@@ -419,11 +761,11 @@
                     },
 
                     "columns": [
-                    {"data": "id_professor" , 'width': '10%'},
-                    {"data": "nome" , 'width': '10%'},
-                    {"data": "logradouro", 'width': '15%'},
-                    {"data": "email", 'width': '15%'},
-                    {"data": null, 'width': '20%',
+                    {"data": "id_professor" , 'width': '5%'},
+                    {"data": "nome" , 'width': '15%'},
+                    {"data": "adress", 'width': '30%'},
+                    {"data": "contatos", 'width': '30%'},
+                    {"data": null, 'width': '10%',
                         "render": function ( data, type, row ) {
                             if (data.status == 1){
                             return '<span class="label label-success">Ativo</span>';
@@ -431,12 +773,14 @@
                             return '<span class="label label-danger">Inativo</span>'; 
                             }
                         },},
-                    {"data": null, 'width': '20%',
+                    {"data": null, 'width': '10%',
                         "render": function ( data, type, row ) {
-                            return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="edit_dist('+data.id_professor+')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-danger" onclick="cambiarstatus('+data.id_professor+')"><i class="glyphicon glyphicon-remove"></i>';
+                            return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-primary" onclick="edit_prof(' + data.id_professor + ')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="mudar_status(' + data.id_professor + ',\''+ data.nome+'\','+data.status+')"><i class="glyphicon glyphicon-ban-circle"></i></button>';
                         },}
                     ],
                         
             });
     </script>
+
+
 @endsection
