@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use App\ProfessorModel;
@@ -27,7 +28,7 @@ class ProfessorController extends Controller
             'cep' => 'required|min:9|max:9',
             'tel' => 'required|min:13|max:13',
             'cel' => 'required|min:14|max:14',
-            'email' => 'required|email|max:250',
+            'email' => 'required|unique:connection.professor:|email|max:250',
         );
    
 
@@ -86,6 +87,17 @@ class ProfessorController extends Controller
 
         return response()->json(['error'=>$validator->errors()->all()]);
     
+    }
+
+    public function show(){
+
+        $dados = DB::table('professor')
+                ->orderBy('nome', 'asc')
+                ->get();
+
+		return  json_encode($dados);
+
+
     }
 
 

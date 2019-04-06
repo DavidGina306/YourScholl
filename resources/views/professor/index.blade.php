@@ -35,6 +35,8 @@
                                         <th>Nome</th>
                                         <th>Endereço</th>
                                         <th>Contato</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -357,18 +359,8 @@
     </script>
 
 
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <!-- SAVE -->
     <script>
            
         $("#btnSave").click(function () {
@@ -400,9 +392,9 @@
 
     </script>
 
-    <!-- DATATABLE-->
+    <!-- DATATABLE GET-->
     <script>
-            var url_base = 'http://localhost/salespromoter/public/';
+            //var url_base = 'http://localhost/salespromoter/public/';
             table = $('#prof_table').DataTable({
                 "language": {
                         "search": "Pesquisar",
@@ -421,20 +413,19 @@
                         }
                     },
                     "ajax": {
-                    "url": url_base + "professores/show",
+                    "url":"/professores/show",
                     "type": "GET",
                     "dataSrc": ""
                     },
 
                     "columns": [
-                    {"data": "DIST_ID" , 'width': '10%'},
-                    {"data": "DIST_NFANTASIA", 'width': '15%'},
-                    {"data": "DIST_CNPJ", 'width': '15%'},
-                    {"data": "DIST_TEL1", 'width': '30%'},
-                    {"data": "DIST_EMAIL", 'width': '30%'},
+                    {"data": "id_professor" , 'width': '10%'},
+                    {"data": "nome" , 'width': '10%'},
+                    {"data": "logradouro", 'width': '15%'},
+                    {"data": "email", 'width': '15%'},
                     {"data": null, 'width': '20%',
                         "render": function ( data, type, row ) {
-                            if (data.DIST_STATUS == 1){
+                            if (data.status == 1){
                             return '<span class="label label-success">Ativo</span>';
                             }else{
                             return '<span class="label label-danger">Inativo</span>'; 
@@ -442,15 +433,9 @@
                         },},
                     {"data": null, 'width': '20%',
                         "render": function ( data, type, row ) {
-                            return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="edit_dist('+data.DIST_ID+')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-danger" onclick="cambiarstatus('+data.DIST_ID+')"><i class="glyphicon glyphicon-remove"></i>';
+                            return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="edit_dist('+data.id_professor+')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-danger" onclick="cambiarstatus('+data.id_professor+')"><i class="glyphicon glyphicon-remove"></i>';
                         },}
                     ],
-                    "select": {
-                    "style":    'os',
-                    "blurable": true
-                        },
-                            "order": [[ 0, "asc" ]],
-                            "select": true,
                         
             });
     </script>

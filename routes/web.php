@@ -22,3 +22,4 @@ Route::get('/professores', 'ProfessorController@index')->name('home');
 Route::get('professores/create', 'ProfessorController@create');
 
 Route::post('professores', 'ProfessorController@store');
+Route::get('professores/show', 'ProfessorController@show')->name('professores.show');
