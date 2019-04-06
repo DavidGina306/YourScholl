@@ -147,7 +147,7 @@
                         <div class="form-group">
                             <label for="tel" class="control-label col-xs-3 col-sm-3">TELEFONE</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control telefone" name="tel" id="tel" minlength="15" maxlength="15" placeholder="(99) 9999-9999" required>
+                                <input type="text" class="form-control telefone" name="tel" id="tel" minlength="13" maxlength="13" placeholder="(99) 9999-9999" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                         <div class="form-group">
                                 <label for="email" class="control-label col-xs-3 col-sm-3">EMAIL</label>
                                 <div class="col-sm-8">
-                                    <input type="email" class="form-control caixa_alta" name="email" id="email" minlength="3" maxlength="3" placeholder="Preencha com endereço de email" required>
+                                    <input type="email" class="form-control caixa_alta" name="email" id="email"  maxlength="250" placeholder="Preencha com endereço de email" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -225,6 +225,7 @@
                                 $("#logradouro").val(dados.logradouro);
                                 $("#bairro").val(dados.bairro);
                                 $("#selectEstado").val(dados.uf);
+                                loadCidades("#selectCidade",  $("#selectEstado").val());
                                 $("#selectCidade").val(dados.localidade);
                                 $("#ibge").val(dados.ibge);
                             } //end if.

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
-use App\Professor;
+use App\ProfessorModel;
 
 class ProfessorController extends Controller
 {
@@ -27,7 +27,7 @@ class ProfessorController extends Controller
             'cep' => 'required|min:9|max:9',
             'tel' => 'required|min:13|max:13',
             'cel' => 'required|min:14|max:14',
-            'email' => 'required|email|max:250|unique:professor',
+            'email' => 'required|email|max:250',
         );
    
 
@@ -64,15 +64,15 @@ class ProfessorController extends Controller
         if($validator->passes()){
 
                 $date = \Carbon\Carbon::now();
-                $professor = new Professor;
+                $professor = new ProfessorModel;
                 $professor->nome = Input::get('nome');
-                $professor->data_nascimento = Input::get('data_nascimento');
+                $professor->data_nascimento = Input::get('dt_nasc');
                 $professor->cep = Input::get('cep');
                 $professor->logradouro = Input::get('logradouro');	
                 $professor->bairro = Input::get('bairro');	
                 $professor->numero = Input::get('numero');	
-                $professor->estado = Input::get('estado');	
-                $professor->cidade = Input::get('cidade');
+                $professor->estado = Input::get('selectEstado');	
+                $professor->cidade = Input::get('selectCidade');
                 $professor->telefone = Input::get('tel');
                 $professor->celular = Input::get('cel');
                 $professor->email = Input::get('email');
