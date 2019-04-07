@@ -881,6 +881,12 @@
     <script>
             //var url_base = 'http://localhost/salespromoter/public/';
             table = $('#alun_table').DataTable({
+                responsive: true,
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 },
+                    { responsivePriority: 2, targets: -1 }
+                ],
+
                 "language": {
                         "search": "Pesquisar",
                         "lengthMenu": "Mostrando  _MENU_ registros",
@@ -923,6 +929,23 @@
                             return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-primary" onclick="edit_alun(' + data.id_aluno + ')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="mudar_status(' + data.id_aluno + ',\''+ data.nome+'\','+data.status+')"><i class="glyphicon glyphicon-ban-circle"></i></button>';
                         },}
                     ],
+                    dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'LEGAL'
+                                
+                                
+                            }
+                     ],
+                     columnDefs: [
+                        {
+                            targets: -1,
+                            className: 'dt-body-nowrap'
+                        }
+                    ]
+                    
                         
             });
 
