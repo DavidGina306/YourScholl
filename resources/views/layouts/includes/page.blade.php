@@ -18,13 +18,13 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                        <!--This is dark logo icon--><img src="{{asset('app-assets/plugins/images/admin-logo.png')}}" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="{{asset('app-asset/plugins/images/admin-logo-dark.jpg')}}" alt="home" class="light-logo" />
-                     </b>
-                        <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="{{asset('app-assets/plugins/images/admin-text.png')}}" alt="home" class="dark-logo" /><!--This is light logo text--><img src="{{asset('app-asset/plugins/images/admin-text-dark.jpg')}}" alt="home" class="light-logo" />
-                     </span> </a>
+                    <a class="logo" href="/">
+                            <!-- Logo icon image, you can use font-icon also --><b>
+                            <!--This is dark logo icon--><img src="{{asset('app-assets/plugins/images/admin-logo.png')}}" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="{{asset('app-assets/plugins/images/admin-logo-dark.png')}}" alt="home" class="light-logo" />
+                         </b>
+                            <!-- Logo text image you can use text also --><span class="hidden-xs">
+                            <!--This is dark logo text--><img src="{{asset('app-assets/plugins/images/admin-text-dark.png')}}" alt="home" class="dark-logo" /><!--This is light logo text--><img src="{{asset('app-assets/plugins/images/admin-text-dark.png')}}" alt="home" class="light-logo" />
+                         </span> </a>
                 </div>
                 <!-- /Logo -->
                 <!-- Search input and Toggle icon -->
@@ -71,25 +71,23 @@
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span> <span class="hide-menu">Navigation</span></h3> </div>
                 <ul class="nav" id="side-menu">
-                    <li class="user-pro">
-                        <a href="#" class="waves-effect"><img src="{{asset('app-assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle"> <span class="hide-menu"> Steve Gection<span class="fa arrow"></span></span>
-                        </a>
-                        <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> <span class="hide-menu">My Profile</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-wallet"></i> <span class="hide-menu">My Balance</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> <span class="hide-menu">Inbox</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> <span class="hide-menu">Account Setting</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
-                        </ul>
-                    </li>
-                    <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-inverse pull-right">4</span></span></a>
+
+                    <li> <a href="#" class="waves-effect"><i class="fa fa-file-text fa-fw"></i> <span class="hide-menu">MENU<span class="fa arrow"></span><span class="label label-rouded label-warning pull-right">30</span></span></a>
                         <ul class="nav nav-second-level">
-                            <li> <a href="index.html"><i class=" fa-fw">1</i><span class="hide-menu">Dashboard 1</span></a> </li>
-                            <li> <a href="index2.html"><i class=" fa-fw">2</i><span class="hide-menu">Dashboard 2</span></a> </li>
-                            <li> <a href="index3.html"><i class=" fa-fw">3</i><span class="hide-menu">Dashboard 3</span></a> </li>
+                            <li><a href="javascript:void(0)" class="waves-effect"><i class="mdi mdi-account-plus fa-fw"></i> <span class="hide-menu">Cadastros</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li> <a href="/professores"><i class="icon-note fa-fw"></i> <span class="hide-menu">Professor</span></a></li>
+                                    <li> <a href="/alunos"><i class="ti-user fa-fw"></i> <span class="hide-menu">Aluno</span></a></li>
+                                    <li> <a href="/cursos"><i class="ti-wallet fa-fw"></i> <span class="hide-menu">Curso</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)" class="waves-effect"><i class=" ti-bar-chart fa-fw"></i><span class="hide-menu">Relatorios</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li><a href="/relatorio_dinamico"><i class="fa-fw">A</i> <span class="hide-menu">Alunos</span></a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="login.html" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
                     <li class="devider"></li>
                 </ul>
             </div>

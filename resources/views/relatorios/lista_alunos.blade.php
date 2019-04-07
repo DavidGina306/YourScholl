@@ -20,10 +20,11 @@
             <!-- /row -->
             <div class="row">
                 <div class="col-sm-12">
+                    <div class="pull-right">
+                            <a href="/relatorio_pdf/pdf" target="_blank" class="btn btn-info waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-file-pdf-o"></i></span>GERAR PDF</a>
+                    </div>
                     <div class="white-box">
-                        <div class="pull-right">
-                                <a href="{{url('relatorio_pdf/pdf')}}">Gerar PDF</a>
-                        </div>
+                        
                         <h3 class="box-title m-b-0">Relátorio de Alunos por Curso</h3>
                         <div class="table-responsive">
                             <table id="curso_table" class="table table-striped">
