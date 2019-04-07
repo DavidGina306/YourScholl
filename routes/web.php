@@ -29,8 +29,19 @@ Route::post('professores/status/{id}/{status}', 'ProfessorController@editStatus'
 Route::get('/cursos', 'CursoController@index')->name('index');
 Route::get('cursos/create', 'CursoController@create');
 Route::post('cursos', 'CursoController@store');
-Route::get('cursos/show', 'CursoController@show')->name('professores.show');
+Route::get('cursos/show', 'CursoController@show')->name('cursos.show');
 Route::get('cursos/editar/{id}', 'CursoController@edit');
 Route::post('cursos/editar', 'CursoController@update');
 Route::get('cursos/status/{id}/{status}', 'CursoController@editStatus');
 Route::post('cursos/status/{id}/{status}', 'CursoController@editStatus');
+
+
+//cursos
+Route::get('/alunos', 'AlunoController@index')->name('index');
+Route::get('alunos/create', 'AlunoController@create');
+Route::post('alunos', 'AlunoController@store');
+Route::get('alunos/show', 'AlunoController@show')->name('aluno.show');
+Route::get('alunos/editar/{id}', 'AlunoController@edit');
+Route::post('alunos/editar', 'AlunoController@update');
+Route::get('alunos/status/{id}/{status}', 'AlunoController@editStatus');
+Route::post('alunos/status/{id}/{status}', 'AlunoController@editStatus');
