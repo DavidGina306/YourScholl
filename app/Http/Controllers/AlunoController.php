@@ -202,6 +202,26 @@ class AlunoController extends Controller
     
     }
 
+    public function editStatus($id,$status){
+
+        if($status==0){
+            $status=1;
+        }else{
+            $status=0;
+        }
+            $date = \Carbon\Carbon::now();
+            $aluno = new AlunoModel;
+            
+            $aluno = AlunoModel::findOrFail($id);
+            $aluno->data_att =$date;
+            $aluno->status =$status;		
+            $aluno->save();
+            return response()->json(['success'=>'Added new records.']);
+         
+
+    }
+
+
 
 
 

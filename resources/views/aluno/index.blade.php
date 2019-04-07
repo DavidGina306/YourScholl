@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('conteudo')
-
-
+    
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row bg-title">
@@ -701,7 +700,7 @@
                     function () {
                             $.ajax({
                             type: "GET",
-                            url:'/professores/status/'+id+"/"+status,
+                            url:'/alunos/status/'+id+"/"+status,
                             dataType: "json",
                             contentType: "application/json; charset=utf-8",
                             success: function (data) {
