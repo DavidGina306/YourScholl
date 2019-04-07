@@ -45,3 +45,11 @@ Route::get('alunos/editar/{id}', 'AlunoController@edit');
 Route::post('alunos/editar', 'AlunoController@update');
 Route::get('alunos/status/{id}/{status}', 'AlunoController@editStatus');
 Route::post('alunos/status/{id}/{status}', 'AlunoController@editStatus');
+
+//relatorios
+Route::get('/relatorio_dinamico', 'DynamicPDFController@index');
+
+
+Route::get('/relatorio_pdf/pdf', 'DynamicPDFController@pdf');
+
+
