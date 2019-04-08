@@ -98,9 +98,8 @@ Este comando cria o arquivo .env logo após a criação na pasta raiz,configureo
 
 ## DEMONSTRAÇÃO DE UM CRUD - CURSOS
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/39013655/55722602-bd935900-59d4-11e9-8fb3-025e30fc4309.gif)
 
-
-   
     
     
 
