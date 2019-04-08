@@ -55,7 +55,7 @@
 - [x] Geração de Relatorio -> utilizando o dompdf
 - [x] Versionamento do projeto  -> utilizando o https://github.com/
 ## INSTALAÇÃO E CONFIGURAÇÃO DO SISTEMA
-- [x] Clone o Projeto git clone 
+- [x] Clone o Projeto com comando na pasta de sua preferência  -   git clone https://github.com/DavidGina306/YourScholl.git
 
 - [x] Instalar o composer (http://getcomposer.org/) 
  
