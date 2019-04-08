@@ -837,6 +837,7 @@
                     dataType: "JSON",
                     success: function(data){
 
+                        console.log(data);
                         if($.isEmptyObject(data.error)){
                             $("#modalsave").modal('hide');
                                 swal({

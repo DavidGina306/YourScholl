@@ -93,8 +93,6 @@ class ProfessorController extends Controller
     public function show(){
 
         $dados = DB::table('professor')
-        ->join('curso','professor.id_professor','=','curso.id_professor')
-        ->select('professor.*', 'curso.nome as curso_nome')
         ->orderBy('nome', 'asc')
         ->get();
 
@@ -105,6 +103,38 @@ class ProfessorController extends Controller
 
             $dados[$i]["adress"] ="". $dados[$i]["logradouro"]. ",". $dados[$i]["bairro"].", ".$dados[$i]["cep"]." ,: ".$dados[$i]["numero"].", ".$dados[$i]["cidade"].", ".$dados[$i]["estado"];
             $dados[$i]["contatos"]=$dados[$i]["celular"]." ".$dados[$i]["telefone"]." ".$dados[$i]["email"];
+            
+            $id=$dados[$i]['id_professor'];
+            
+            $dados_ = DB::table('professor')
+            ->Join('curso','professor.id_professor','=','curso.id_professor')
+            ->select('professor.*', 'curso.nome as curso_nome')
+            ->where('professor.id_professor', '=', $id)
+            ->get();
+            $dados_ = json_decode($dados_, true);
+            $size_=count($dados_);
+            $str="";
+            if($size_!=0){
+
+                for($j=0;$j<$size_;$j++){
+                    if($j==0){
+                        $str.=$dados_[$j]['curso_nome'];
+                    }else if($j==$size_-1){
+                        $str.="";
+                    }
+                    else{
+                        $str.=", ".$dados_[$j]['curso_nome'];
+                    }
+                    
+                }
+    
+
+            }
+           
+            $dados[$i]["curso_nome"]=$str;
+        
+        
+        
         }
 		return  json_encode($dados);
 
