@@ -54,6 +54,22 @@
 - [x] Geração de Relatorio -> utilizando o dompdf
 - [x] Versionamento do projeto  -> utilizando o https://github.com/
 ## INSTALAÇÃO E CONFIGURAÇÃO DO SISTEMA
+- [x] Instalar o composer (http://getcomposer.org/) 
+ 
+ _Negrito_ => Após a instalação do composer
+     
+- [x] Crie a base de dados no Mysql como nome de => yourschool
+
+- [x] Utlize os Seguintes comandos :
+ <ol>
+    <li>composer install<li>
+     <li>composer dump<li>
+    <li>php artisan key:generate<li>
+ <ol>
+
+
+
+
 
 
 
