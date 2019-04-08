@@ -54,19 +54,56 @@
 - [x] Geração de Relatorio -> utilizando o dompdf
 - [x] Versionamento do projeto  -> utilizando o https://github.com/
 ## INSTALAÇÃO E CONFIGURAÇÃO DO SISTEMA
+- [x] Clone o Projeto git clone 
+
 - [x] Instalar o composer (http://getcomposer.org/) 
  
  _Negrito_ => Após a instalação do composer
      
 - [x] Crie a base de dados no Mysql como nome de => yourschool
 
-- [x] Utlize os Seguintes comandos :
- <ol>
-    <li>composer install<li>
-     <li>composer dump<li>
-    <li>php artisan key:generate<li>
- <ol>
+- [x] Utlize os Seguintes comandos dentro da pasta do projeto:
 
+     1°. composer
+
+     <ul>
+        <li>composer install</li>
+         <li>composer dump</li>
+     <ul>
+         
+    2°. criar arquivo.env
+    <ul>
+        <li>cp .env.example .env</li>
+    <ul>
+    Este comando cria o arquivo .env
+        logo após a criação na pasta raiz,
+        configureo neste trecho :
+        
+    LOG_CHANNEL=stack
+    DB_DEFAULT=mysql
+    DB_CONNECTION=mysql
+    DB_HOST=localhost
+    DB_PORT=3306
+    DB_DATABASE=yourschool
+    DB_USERNAME=root
+    DB_PASSWORD=''     
+    
+    3°. Migrar as tabelas do sistema
+    
+    <ul>
+        <li>php artisan migrate</li>
+    <ul>
+    
+    4°. Artisan Serve
+    <ul>
+        <li>php artisan serve</li>
+    <ul>
+
+## Modelagem do Banco de Dados
+
+   
+    
+    
 
 
 
