@@ -64,20 +64,15 @@
 
 - [x] Utlize os Seguintes comandos dentro da pasta do projeto:
 
-     1°. composer
-
-     <ul>
-        <li>composer install</li>
-         <li>composer dump</li>
-     <ul>
+ 1°. composer
+  
+    composer install
+    composer dump
          
-    2°. criar arquivo.env
-    <ul>
-        <li>cp .env.example .env</li>
-    <ul>
-    Este comando cria o arquivo .env
-        logo após a criação na pasta raiz,
-        configureo neste trecho :
+2°. criar arquivo.env
+
+    cp .env.example .env
+Este comando cria o arquivo .env logo após a criação na pasta raiz,configureo neste trecho :
         
     LOG_CHANNEL=stack
     DB_DEFAULT=mysql
@@ -88,16 +83,13 @@
     DB_USERNAME=root
     DB_PASSWORD=''     
     
-    3°. Migrar as tabelas do sistema
+3°. Migrar as tabelas do sistema
     
-    <ul>
-        <li>php artisan migrate</li>
-    <ul>
-    
-    4°. Artisan Serve
-    <ul>
-        <li>php artisan serve</li>
-    <ul>
+    php artisan migrate
+
+4°. Artisan Serve
+   
+    <b>php artisan serve</b>
 
 ## Modelagem do Banco de Dados
 
