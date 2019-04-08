@@ -7,8 +7,9 @@
 ## PROJETO YOURSCHOOLEAD - CRUD
 <a href="http://yourschoolead.000webhostapp.com/"><p align="center"><img src="http://ap.imagensbrasil.org/images/2019/04/08/logo.png"></p></a>                                     
 <p align="center"><span> http://yourschoolead.000webhostapp.com/</spa></p>
-                                      
+<p align="center"><span> https://github.com/DavidGina306/YourScholl/</spa></p>                                     
 
+<p align="center">Criado e desenvolvido por David Felipe S. Oliveira</p>
     
         
         1. Criar CRUD de 3 tabelas listadas abaixo em PHP: - [x] Elaborado com Mysql
