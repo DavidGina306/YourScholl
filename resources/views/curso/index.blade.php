@@ -2,7 +2,11 @@
 
 @section('conteudo')
 
-
+    <style>
+            .swal-modal {
+                font-family: Helvetica;
+              }
+    </style>
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row bg-title">
@@ -10,7 +14,7 @@
                     <h4 class="page-title"></h4> </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li class="active">Cursos</li>
                     </ol>
                 </div>
@@ -23,24 +27,24 @@
                         <div class="pull-right">
                                 <button data-toggle="modal" onclick="add_curso()" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-save"></i></span>CADASTRAR</button>
                         </div>
-                    
+
                         <h3 class="box-title m-b-0">Cursos</h3>
                         <p class="text-muted m-b-30">Tabela Cursos</p>
                         <div class="table-responsive">
-                            <table id="curso_table" class="table table-striped">
+                            <table id="curso_table" class=" table table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
                                         <th>Ementa</th>
-                                        <th>Carga Horaria</th>
+                                        <th>Cg.Horaria</th>
                                         <th>Professor</th>
                                         <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    
+                                <tbody style="font-size: small">
+
                                 </tbody>
                             </table>
                         </div>
@@ -65,11 +69,11 @@
                         <div class="form-group">
                             <label for="nome" class="control-label col-xs-3 col-sm-3"> NOME</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control caixa_alta" name="nome" id="nome" minlength="5" maxlength="100" placeholder="Preencha com Nome" required>
+                                <input type="text" class="form-control caixa_alta" name="nome" id="nome" minlength="5" maxlength="250" placeholder="Preencha com Nome" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group ">
                             <label for="ementa" class="control-label col-xs-3 col-sm-3">EMENTA</label>
                             <div class="col-sm-8">
@@ -77,7 +81,7 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                    
+
                         <div class="form-group">
                                 <label for="cg_h" class="control-label col-xs-3 col-sm-3" >CARGA HORARIA</label>
                                 <div class="col-sm-4">
@@ -85,23 +89,23 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                         </div>
-                            
+
 
                         <div class="form-group">
                                 <label class=" control-label col-xs-3 col-sm-3" for='selectProfessor'>Professor</label>
-                                <div class="col-xs-6 col-sm-6">
-    
+                                <div class="col-xs-5 col-lg-5 col-sm-5">
+
                                     <select id='selectProfessor' name='selectProfessor' class="form-control select2 col-xs-9" required>
-    
+
                                     </select>
                                 </div>
 
-                                <div class="col-sm-2">
+                                <div class="col-xs-2 col-lg-2 col-sm-2">
                                     <button onclick="add_prof()" type="button" class="btn btn-info waves-effect text-left" >NOVO</button>
 
                                 </div>
                         </div>
-                     
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -124,7 +128,7 @@
             <div class="modal-content">
                 <div class="modal-header" style="background-color:#2f323e">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myLargeModalLabel" style="color:white">EDIÇÃO DE PROFESSORES</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel" style="color:white">EDIÇÃO DE CURSO</h4>
                 </div>
                 <div class="modal-body">
 
@@ -134,11 +138,11 @@
                         <div class="form-group">
                                 <label for="nome_Edt" class="control-label col-xs-3 col-sm-3"> NOME</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control caixa_alta" name="nome_edt" id="nome_edt" minlength="5" maxlength="100" placeholder="Preencha com Nome" required>
+                                    <input type="text" class="form-control caixa_alta" name="nome_edt" id="nome_edt" minlength="5" maxlength="250" placeholder="Preencha com Nome" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group ">
                                 <label for="ementa_edt" class="control-label col-xs-3 col-sm-3">EMENTA</label>
                                 <div class="col-sm-8">
@@ -146,7 +150,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        
+
                             <div class="form-group">
                                     <label for="cg_h_edt" class="control-label col-xs-3 col-sm-3" >CARGA HORARIA</label>
                                     <div class="col-sm-4">
@@ -154,24 +158,24 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                             </div>
-                                
-    
+
+
                             <div class="form-group">
                                     <label class=" control-label col-xs-3 col-sm-3" for='selectProfessor_edt'>Professor</label>
-                                    <div class="col-xs-6 col-sm-6">
-        
+                                    <div class="col-xs-5 col-lg-5 col-sm-5">
+
                                         <select id='selectProfessor_edt' name='selectProfessor_edt' class="form-control select2 col-xs-9" required>
-        
+
                                         </select>
                                     </div>
-    
-                                    <div class="col-sm-2">
+
+                                    <div class="col-xs-2 col-lg-2 col-sm-2">
                                         <button onclick="add_prof()" type="button" class="btn btn-info waves-effect text-left" >NOVO</button>
-    
+
                                     </div>
                             </div>
-                
-                        
+
+
                     </form>
                 </div>
 
@@ -221,7 +225,7 @@
                                 <div class="col-sm-6">
                                     <input type="text" value="" class="form-control cep" name="cep" id="cep" minlength="9" maxlength="9" placeholder="Preencha com CEP" onblur="pesquisacep(this.value);"  required>
                                     <div class="help-block with-errors"></div>
-                                </div>    
+                                </div>
                         </div>
 
                             <div class="form-group">
@@ -243,7 +247,7 @@
                         <div class="form-group">
                             <label for="numero" class="control-label col-xs-3 col-sm-3">NUMERO</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" minlength="3" maxlength="3" placeholder="Preencha o Numero" required>
+                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" maxlength="10" placeholder="Preencha o Numero" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -251,13 +255,13 @@
                         <div class="form-group camposExtras">
                                 <label class=" control-label col-xs-3 col-sm-3" for='selectEstado'>ESTADO</label>
                                 <div class="col-xs-8 col-sm-8">
-    
+
                                     <select data-target="#selectCidade" id="selectEstado" name="selectEstado" class="form-control select2 col-xs-9" required>
-    
+
                                     </select>
                                 </div>
                         </div>
-                        
+
                         <div class="form-group camposExtras">
                             <label class=" control-label col-xs-3 col-sm-3" for='selectCidade'>CIDADE</label>
                             <div class="col-xs-8 col-sm-8">
@@ -268,7 +272,7 @@
                             </div>
                         </div>
 
-                    
+
 
                         <div class="form-group">
                             <label for="cel_edt" class="control-label col-xs-3 col-sm-3">CELULAR</label>
@@ -278,7 +282,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group">
                             <label for="tel" class="control-label col-xs-3 col-sm-3">TELEFONE</label>
                             <div class="col-sm-4">
@@ -294,7 +298,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        
+
                     </form>
                 </div>
 
@@ -309,7 +313,7 @@
             <!-- /.modal-content -->
         </div>
     </div>
-        
+
 
 @endsection
 
@@ -331,7 +335,7 @@
                 $("#selectEstado").val("");
                 $("#ibge").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
@@ -397,7 +401,7 @@
                 $("#selectEstado_edt").val("");
                 $("#ibge").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep_edt").blur(function() {
 
@@ -537,44 +541,44 @@
                 }
                 });
             }, false);
-            
+
     </script>
 
 
     <!-- OPEN MODALS -->
     <script>
-        
+
         $('.celular').mask('(99)99999-9999', {reverse: false});
         $('.telefone').mask('(99)9999-9999', {reverse: false});
         $('.cep').mask('99999-999', {reverse: false});
         $(".caixa_alta").keyup(function () {
             $(this).val($(this).val().toUpperCase());
         })
-        
+
         function add_curso() {
             $("#f_save_curso")[0].reset();
-  
+
 
             $('#modalsave').modal('show');
         }
 
-        
+
 
         function edit_curso(id) {
-        
+
             $.ajax({
                 type: 'get',
                 dataType: 'json',
                 url:'/cursos/editar/'+id,
                 success: function (data, textStatus, jqXHR) {
-                    
+
                     $("#custId").val(data.id_curso);
                     $("#nome_edt").val(data.nome);
                     $("#ementa_edt").val(data.ementa);
                     $("#cg_h_edt").val(data.carga_horaria);
-                    $("#selectProfessor_edt").val(data.id_professor).change();                                 
+                    $("#selectProfessor_edt").val(data.id_professor).change();
                     $('#modaledit').modal('show');
-                    
+
                 },
                 error: function (data, textStatus, errorThrown) {
                     alert('Error - ' + errorThrown);
@@ -586,14 +590,14 @@
 
         function add_prof() {
             $("#f_save_prof")[0].reset();
-  
+
 
             $('#modalSavaProf').modal('show');
         }
     </script>
 
 
-    
+
     <!-- SAVE,EDIT,CHANGE STATUS -->
     <script>
         function mudar_status(id,nome,status) {
@@ -642,7 +646,7 @@
             });
 
 
-        }   
+        }
 
         $("#btnSave").click(function () {
             //console.log("save");
@@ -665,14 +669,14 @@
                                 showCancelButton: false,
                                 confirmButtonClass: 'btn-success',
                                 confirmButtonText: 'Aceitar',
-  
+
                               }, function(){
                                 table.ajax.reload();
                               });
 
                               //console.log(data);
                               $("#selectProfessor").val(data.last_insert_id).change();
-                              
+
                         }else{
 
                             swal({
@@ -686,7 +690,7 @@
 
                             console.log(data.error);
                         }
-                            
+
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
@@ -724,8 +728,8 @@
                         }else{
 
                             swal({
-                                title: 'Erro ao Cadastrar!',
-                                text: data.error,
+                                title: '<small>Erro ao Cadastrar</small>!',
+                                text: "<small>"+data.error+"</small>",
                                 type: 'warning',
                                 html :  true,
                                 confirmButtonClass: 'btn-warning',
@@ -734,7 +738,7 @@
 
                             console.log(data.error);
                         }
-                            
+
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
@@ -771,7 +775,7 @@
                                 table.ajax.reload();
                         });
                     }else{
-                        
+
                         swal({
                             title: 'Erro ao Cadastrar!',
                             text: data.error,
@@ -781,7 +785,7 @@
                             confirmButtonText: 'Aceitar',
                         });;
                     }
-                        
+
                     },
                     error: function (jqXHR, textStatus, errorThrown)
                     {
@@ -791,13 +795,13 @@
 
         });
 
-    
-        
-        
-        
+
+
+
+
     </script>
 
-    
+
     <!-- DATATABLE GET-->
     <script>
             //var url_base = 'http://localhost/salespromoter/public/';
@@ -835,7 +839,7 @@
                             if (data.status == 1){
                             return '<span class="label label-success">Ativo</span>';
                             }else{
-                            return '<span class="label label-danger">Inativo</span>'; 
+                            return '<span class="label label-danger">Inativo</span>';
                             }
                         },},
                     {"data": null, 'width': '10%',
@@ -843,27 +847,27 @@
                             return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-primary" onclick="edit_curso(' + data.id_curso + ')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="mudar_status(' + data.id_curso + ',\''+ data.nome+'\','+data.status+')"><i class="glyphicon glyphicon-ban-circle"></i></button>';
                         },}
                     ],
-                        
+
             });
-        
+
 
     </script>
-    
-    
+
+
     <!-- SELECT CARGER PROFESSOR -->
     <script>
         $(document).ready(function(){
             cargerSelectEdt();
             cargerSelect();
-          
-           
+
+
         });
 
         function cargerSelect(){
-            
+
             $('#selectProfessor').find('option').not(':first').remove();
 
-            // AJAX request 
+            // AJAX request
             $.ajax({
                 url: '/professores/show',
                 type: 'get',
@@ -883,9 +887,9 @@
                         var id = response[i].id_professor;
                         var name = response[i].nome;
 
-                        var option = "<option value='"+id+"'>"+name+"</option>"; 
+                        var option = "<option value='"+id+"'>"+name+"</option>";
 
-                        $("#selectProfessor").append(option); 
+                        $("#selectProfessor").append(option);
                     }
                     }
 
@@ -895,10 +899,10 @@
 
 
         function cargerSelectEdt(){
-            
+
             $('#selectProfessor_edt').find('option').not(':first').remove();
 
-            // AJAX request 
+            // AJAX request
             $.ajax({
                 url: '/professores/show',
                 type: 'get',
@@ -918,9 +922,9 @@
                         var id = response[i].id_professor;
                         var name = response[i].nome;
 
-                        var option = "<option value='"+id+"'>"+name+"</option>"; 
+                        var option = "<option value='"+id+"'>"+name+"</option>";
 
-                        $("#selectProfessor_edt").append(option); 
+                        $("#selectProfessor_edt").append(option);
                     }
                     }
 
@@ -931,7 +935,7 @@
     </script>
 
 
- 
+
 
 
 @endsection

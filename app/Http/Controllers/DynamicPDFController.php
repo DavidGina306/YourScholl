@@ -7,11 +7,11 @@ use DB;
 use Barryvdh\DomPDF\Facade as PDF;
 use Dompdf\Dompdf;
 use Dompdf\Options;
-
+use Carbon\Carbon;
 class DynamicPDFController extends Controller
 {
     function index(){
-        
+
         $relatorio_data=$this->get_relatorio_data();
         return view('relatorios/lista_alunos')->with('relatorio_data',$relatorio_data);
 
@@ -25,7 +25,7 @@ class DynamicPDFController extends Controller
         ->join('professor','curso.id_professor','=','professor.id_professor')
         ->get();
         return  $relatorio_data;
-    } 
+    }
 
     function pdf(){
 
@@ -38,7 +38,8 @@ class DynamicPDFController extends Controller
     }
 
     function convert_relatorio_data_html(){
-        $date = \Carbon\Carbon::now();
+        $date = \Carbon\Carbon::setLocale('pt_BR');
+        $date = Carbon::now('America/Manaus');
         $relatorio_data=$this->get_relatorio_data();
         $output='
 
@@ -59,7 +60,7 @@ class DynamicPDFController extends Controller
             <span>Emitido em: '.$date.'</span>
         </div>
         <div class="white-box">
-                        
+
             <h3 class="box-title m-b-0">Relátorio de Alunos por Curso</h3>
             <div class="table-responsive">
                 <table id="curso_table" class="table color-table success-table">
@@ -71,21 +72,21 @@ class DynamicPDFController extends Controller
                             <th>Professor</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="font-size: small">
         ';
         $count =0;
         foreach($relatorio_data as $relatorio){
             $count=$count+1;
             $output .='
 
-            <tr> 
-                <th>'.$count.'</th>       
+            <tr>
+                <th>'.$count.'</th>
                 <th>'.$relatorio->aluno_nome.'</th>
                 <th>'.$relatorio->curso_nome.'</th>
                 <th>'.$relatorio->professor_nome.'</th>
-        
-            </tr>          
-            
+
+            </tr>
+
             ';
         }
 
@@ -95,7 +96,7 @@ class DynamicPDFController extends Controller
                 </table>
             </div>
         </div>
-        
+
         ';
 
         return $output;

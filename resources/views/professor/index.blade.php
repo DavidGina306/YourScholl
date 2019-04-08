@@ -7,11 +7,10 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Data Table</h4> </div>
+                    <h4 class="page-title"></h4> </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Table</a></li>
+                        <li><a href="/">Home</a></li>
                         <li class="active">Data Table</li>
                     </ol>
                 </div>
@@ -24,23 +23,23 @@
                         <div class="pull-right">
                                 <button data-toggle="modal" onclick="add_prof()" class="btn btn-success waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-save"></i></span>CADASTRAR</button>
                         </div>
-                    
+
                         <h3 class="box-title m-b-0">Professores</h3>
                         <p class="text-muted m-b-30">Tabela Professores</p>
                         <div class="table-responsive">
-                            <table id="prof_table" class="table table-striped">
-                                <thead>
+                            <table id="prof_table" class="compact nowrap table table-striped">
+                                <thead style="font-size: small">
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Contato</th>
+                                        <th>Curso</th>
+                                        <th>Detalhes</th>
                                         <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    
+                                <tbody style="font-size: small">
+
                                 </tbody>
                             </table>
                         </div>
@@ -50,6 +49,9 @@
             <!-- /.row -->
             <!-- ============================================================== -->
     </div>
+
+
+
     <!-- /.strater modal save -->
     <div class="modal fade bs-example-modal-lg" id="modalsave" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg">
@@ -65,7 +67,7 @@
                         <div class="form-group">
                             <label for="nome" class="control-label col-xs-3 col-sm-3"> NOME</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control caixa_alta" name="nome" id="nome" minlength="5" maxlength="100" placeholder="Preencha com Nome" required>
+                                <input type="text" class="form-control caixa_alta" name="nome" id="nome" minlength="5" maxlength="250" placeholder="Preencha com Nome" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -84,13 +86,13 @@
                                     <input type="text" value="" class="form-control cep" name="cep" id="cep" minlength="9" maxlength="9" placeholder="Preencha com CEP" onblur="pesquisacep(this.value);"  required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-    
+
                         </div>
 
                          <div class="form-group">
                             <label for="logradouro" class="control-label col-xs-3 col-sm-3">LOGRADOURO</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control caixa_alta" name="logradouro" id="logradouro" minlength="2" maxlength="250" placeholder="Preencha o Logradouro" required>
+                                <input type="text" class="form-control caixa_alta" name="logradouro" id="logradouro"  maxlength="250" placeholder="Preencha o Logradouro" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -98,7 +100,7 @@
                         <div class="form-group">
                                 <label for="bairro" class="control-label col-xs-3 col-sm-3">BAIRRO</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control caixa_alta" name="bairro" id="bairro" minlength="2" maxlength="150" placeholder="Preencha o Bairro" required>
+                                    <input type="text" class="form-control caixa_alta" name="bairro" id="bairro"  maxlength="100" placeholder="Preencha o Bairro" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -106,7 +108,7 @@
                         <div class="form-group">
                             <label for="numero" class="control-label col-xs-3 col-sm-3">NUMERO</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" maxlength="3" placeholder="Preencha o Numero" required>
+                                <input type="text" class="form-control caixa_alta" name="numero" id="numero" maxlength="10" placeholder="Preencha o Numero" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -114,13 +116,13 @@
                         <div class="form-group camposExtras">
                                 <label class=" control-label col-xs-3 col-sm-3" for='selectEstado'>ESTADO</label>
                                 <div class="col-xs-8 col-sm-8">
-    
+
                                     <select data-target="#selectCidade" id="selectEstado" name="selectEstado" class="form-control select2 col-xs-9" required>
-    
+
                                     </select>
                                 </div>
                         </div>
-                        
+
                         <div class="form-group camposExtras">
                             <label class=" control-label col-xs-3 col-sm-3" for='selectCidade'>CIDADE</label>
                             <div class="col-xs-8 col-sm-8">
@@ -131,7 +133,7 @@
                             </div>
                         </div>
 
-                    
+
 
                         <div class="form-group">
                             <label for="cel" class="control-label col-xs-3 col-sm-3">CELULAR</label>
@@ -141,7 +143,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group">
                             <label for="tel" class="control-label col-xs-3 col-sm-3">TELEFONE</label>
                             <div class="col-sm-4">
@@ -157,7 +159,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -208,7 +210,7 @@
                                 <div class="col-sm-6">
                                     <input type="text" value="" class="form-control cep" name="cep_edt" id="cep_edt" minlength="9" maxlength="9" placeholder="Preencha com CEP" onblur="pesquisacep(this.value);"  required>
                                     <div class="help-block with-errors"></div>
-                                </div>    
+                                </div>
                         </div>
 
                             <div class="form-group">
@@ -230,7 +232,7 @@
                         <div class="form-group">
                             <label for="numero" class="control-label col-xs-3 col-sm-3">NUMERO</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control caixa_alta" name="numero_edt" id="numero_edt" minlength="3" maxlength="3" placeholder="Preencha o Numero" required>
+                                <input type="text" class="form-control caixa_alta" name="numero_edt" id="numero_edt"  maxlength="10" placeholder="Preencha o Numero" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -238,13 +240,13 @@
                         <div class="form-group camposExtras">
                                 <label class=" control-label col-xs-3 col-sm-3" for='selectEstado_edt'>ESTADO</label>
                                 <div class="col-xs-8 col-sm-8">
-    
+
                                     <select data-target="#selectCidade_edt" id="selectEstado_edt" name="selectEstado_edt" class="form-control select2 col-xs-9" required>
-    
+
                                     </select>
                                 </div>
                         </div>
-                        
+
                         <div class="form-group camposExtras">
                             <label class=" control-label col-xs-3 col-sm-3" for='selectCidade_edt'>CIDADE</label>
                             <div class="col-xs-8 col-sm-8">
@@ -255,7 +257,7 @@
                             </div>
                         </div>
 
-                    
+
 
                         <div class="form-group">
                             <label for="cel_edt" class="control-label col-xs-3 col-sm-3">CELULAR</label>
@@ -265,7 +267,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group">
                             <label for="tel_edt" class="control-label col-xs-3 col-sm-3">TELEFONE</label>
                             <div class="col-sm-4">
@@ -281,7 +283,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        
+
                     </form>
                 </div>
 
@@ -297,7 +299,155 @@
         </div>
     </div>
     <!-- /. end modal save -->
-        
+    <!-- MODAL DETALHES -->
+    <div class="modal fade bs-example-modal-lg" id="modal_plus" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header" style="background-color:#1E88E5">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 </div>
+                    <div class="modal-body" style="color:#707CD2 font-family: lato;">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <h3 class="box-title"style="color:#1E88E5; font-family: lato;">DADOS PESSOAIS</h3>
+                                <hr class="m-t-0 m-b-40"  style="color:#1E88E5; background-color: #1E88E5;" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">NOME:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_name">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">DT NASC:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_birth">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                                <h3 class="box-title" style="color:#1E88E5; font-family: lato;">CONTATO</h3>
+                                <hr class="m-t-0 m-b-40"  style="color:#1E88E5; background-color: #1E88E5;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">EMAIL:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_email">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CELULAR:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_cel">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">TELEFONE:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_tel">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                  <!--/row-->
+                                <h3 class="box-title" style="color:#1E88E5; font-family: lato;">ENDEREÇO</h3>
+                                <hr class="m-t-0 m-b-40"  style="color:#1E88E5; background-color: #1E88E5;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">RUA/LOG:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_street">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">BAIRRO:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_district">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CIDADE:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_city">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">UF:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"id="test_state">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CEP:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_cep">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">PAÍS:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_country">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                 <!--/row-->
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">NUM:</label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static" id="test_num" name="test_num">  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+    <!-- /. end modal save -->
 
 @endsection
 
@@ -319,7 +469,7 @@
                 $("#selectEstado").val("");
                 $("#ibge").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
@@ -385,7 +535,7 @@
                 $("#selectEstado_edt").val("");
                 $("#ibge").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep_edt").blur(function() {
 
@@ -525,35 +675,77 @@
                 }
                 });
             }, false);
-            
+
     </script>
 
+    <!-- show more -->
+    <script>
+            function formatDate (input) {
+                var datePart = input.match(/\d+/g),
+                year = datePart[0].substring(0), // get only two digits
+                month = datePart[1], day = datePart[2];
+              
+                return day+'/'+month+'/'+year;
+              }
+            function show_more(id) {
 
+                $.ajax({
+                    type: 'get',
+                    dataType: 'json',
+                    url:'/professores/editar/'+id,
+                    success: function (data, textStatus, jqXHR) {
+                        
+                        $("#test_name").html(data.nome);
+                        data_nac= data.data_nascimento;
+                        data_nac=formatDate(data_nac);
+                        console.log(data_nac);
+                        $("#test_birth").html(data_nac);
+                        $("#test_email").html(data.email);
+                        $("#test_cel").html(data.celular);
+                        $("#test_tel").html(data.telefone);
+                        $("#test_street").html(data.logradouro);
+                        $("#test_district").html(data.bairro);
+                        $("#test_cep").html(data.cep);
+                        $("#test_city").html(data.cidade);
+                        $("#test_state").html(data.estado);
+                        $("#test_num").html(data.numero);
+                        $('#modal_plus').modal('show');
+
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                        alert('Error - ' + errorThrown);
+                    }
+                });
+
+               // $('#modal_plus').modal('show');
+            }
+
+    </script>
     <!-- OPEN MODALS -->
     <script>
-        
+
         $('.celular').mask('(99)99999-9999', {reverse: false});
         $('.telefone').mask('(99)9999-9999', {reverse: false});
         $('.cep').mask('99999-999', {reverse: false});
         $(".caixa_alta").keyup(function () {
             $(this).val($(this).val().toUpperCase());
         })
-        
+
         function add_prof() {
             $("#f_save_prof")[0].reset();
-  
+
 
             $('#modalsave').modal('show');
         }
 
         function edit_prof(id) {
-        
+
             $.ajax({
                 type: 'get',
                 dataType: 'json',
                 url:'/professores/editar/'+id,
                 success: function (data, textStatus, jqXHR) {
-                    
+
                     $("#custId").val(data.id_professor);
                     $("#nome_edt").val(data.nome);
                     $("#dt_nasc_edt").val(data.data_nascimento);
@@ -565,13 +757,13 @@
                     $("#tel_edt").val(data.telefone);
                     $("#cel_edt").val(data.celular);
                     $("#email_edt").val(data.email);
-                    //adress    
+                    //adress
                     loadEstados('#selectEstado_edt');
                     $("#selectEstado_edt").val(data.estado).change();
                     loadCidades("#selectCidade_edt",  $("#selectEstado_edt").val());
-                    $("#selectCidade_edt").val(data.cidade).change();                                     
+                    $("#selectCidade_edt").val(data.cidade).change();
                     $('#modaledit').modal('show');
-                    
+
                 },
                 error: function (data, textStatus, errorThrown) {
                     alert('Error - ' + errorThrown);
@@ -583,7 +775,7 @@
     </script>
 
 
-    
+
     <!-- SAVE,EDIT,CHANGE STATUS -->
     <script>
             function mudar_status(id,nome,status) {
@@ -611,7 +803,7 @@
                                   showCancelButton: false,
                                   confirmButtonClass: 'btn-success',
                                   confirmButtonText: 'Aceitar',
-    
+
                                 }, function(){
                                   table.ajax.reload();
                                 });
@@ -625,14 +817,14 @@
                                     confirmButtonClass: 'btn-warning',
                                     confirmButtonText: 'Aceitar',
                                 });
-    
+
                             }
                             });
-    
+
                 });
-    
-    
-            }   
+
+
+            }
         $("#btnSave").click(function () {
             //console.log("save");
                 url = '/professores'
@@ -671,7 +863,7 @@
 
                             console.log(data.error);
                         }
-                            
+
                         },
                         error: function (jqXHR, textStatus, errorThrown)
                         {
@@ -708,7 +900,7 @@
                                 table.ajax.reload();
                         });
                     }else{
-                        
+
                         swal({
                             title: 'Erro ao Cadastrar!',
                             text: data.error,
@@ -718,7 +910,7 @@
                             confirmButtonText: 'Aceitar',
                         });;
                     }
-                        
+
                     },
                     error: function (jqXHR, textStatus, errorThrown)
                     {
@@ -728,10 +920,10 @@
 
         });
 
-    
-        
-        
-        
+
+
+
+
         </script>
 
     <!-- DATATABLE GET-->
@@ -763,14 +955,20 @@
                     "columns": [
                     {"data": "id_professor" , 'width': '5%'},
                     {"data": "nome" , 'width': '15%'},
-                    {"data": "adress", 'width': '30%'},
-                    {"data": "contatos", 'width': '30%'},
+                    {"data": "curso_nome" , 'width': '15%'},
+                    {
+                        "data": null, 'width': '10%',
+                        "render": function (data, type, row) {
+                            return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-info pull-center" onclick="show_more(' + data.id_professor + ')"><i class="fa fa-search-plus"></i>ver mais</button>';
+                        },
+                    },
+
                     {"data": null, 'width': '10%',
                         "render": function ( data, type, row ) {
                             if (data.status == 1){
                             return '<span class="label label-success">Ativo</span>';
                             }else{
-                            return '<span class="label label-danger">Inativo</span>'; 
+                            return '<span class="label label-danger">Inativo</span>';
                             }
                         },},
                     {"data": null, 'width': '10%',
@@ -778,9 +976,10 @@
                             return '<button data-toggle="tooltip" data-placement="top" title = "Editar" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-primary" onclick="edit_prof(' + data.id_professor + ')"><i class="glyphicon glyphicon-pencil"></i></button><button data-toggle="tooltip" data-placement="top" title = "Mudar Status" style="font-size: 12px ; padding: 0px 3px;" class="btn btn-warning" onclick="mudar_status(' + data.id_professor + ',\''+ data.nome+'\','+data.status+')"><i class="glyphicon glyphicon-ban-circle"></i></button>';
                         },}
                     ],
-                        
+
             });
     </script>
 
 
 @endsection
+

@@ -30,7 +30,7 @@ class ProfessorController extends Controller
             'cel' => 'required|min:14|max:14',
             'email' => 'required|email|max:250',
         );
-   
+
 
         $messages=array(
             'nome.required'=>'O campo nome é de preenchimento obrigátorio',
@@ -58,9 +58,9 @@ class ProfessorController extends Controller
             'logradouro.min'=>'O campo logradouro deve ter no máximo 250 caracteres',
             'email.email'=>'O campo email deve ser um email válido',
             'email.unique'=>'Já existe este email cadastrado.',
-            
+
         );
-        
+
         $validator = Validator::make( $request->all(), $rules, $messages );
 
         if($validator->passes()){
@@ -70,40 +70,42 @@ class ProfessorController extends Controller
                 $professor->nome = Input::get('nome');
                 $professor->data_nascimento = Input::get('dt_nasc');
                 $professor->cep = Input::get('cep');
-                $professor->logradouro = Input::get('logradouro');	
-                $professor->bairro = Input::get('bairro');	
-                $professor->numero = Input::get('numero');	
-                $professor->estado = Input::get('selectEstado');	
+                $professor->logradouro = Input::get('logradouro');
+                $professor->bairro = Input::get('bairro');
+                $professor->numero = Input::get('numero');
+                $professor->estado = Input::get('selectEstado');
                 $professor->cidade = Input::get('selectCidade');
                 $professor->telefone = Input::get('tel');
                 $professor->celular = Input::get('cel');
                 $professor->email = Input::get('email');
                 $professor->data_criacao =$date;
-                $professor->status =1;		
+                $professor->status =1;
                 $professor->save();
-        
+
                 return response()->json(['success'=>'Added new records.']);
 
         }
 
         return response()->json(['error'=>$validator->errors()->all()]);
-    
+
     }
 
     public function show(){
 
         $dados = DB::table('professor')
-                ->orderBy('nome', 'asc')
-                ->get();
-        
+        ->join('curso','professor.id_professor','=','curso.id_professor')
+        ->select('professor.*', 'curso.nome as curso_nome')
+        ->orderBy('nome', 'asc')
+        ->get();
+
         $dados = json_decode($dados, true);
         $size=count($dados);
 
         for($i=0;$i<$size;$i++){
 
-            $dados[$i]["adress"] ="LOGRA: ". $dados[$i]["logradouro"]. ", BAIRRO: ". $dados[$i]["bairro"].", CEP: ".$dados[$i]["cep"]." , NUM: ".$dados[$i]["numero"].", CID: ".$dados[$i]["cidade"].", UF: ".$dados[$i]["estado"];
+            $dados[$i]["adress"] ="". $dados[$i]["logradouro"]. ",". $dados[$i]["bairro"].", ".$dados[$i]["cep"]." ,: ".$dados[$i]["numero"].", ".$dados[$i]["cidade"].", ".$dados[$i]["estado"];
             $dados[$i]["contatos"]=$dados[$i]["celular"]." ".$dados[$i]["telefone"]." ".$dados[$i]["email"];
-        }        
+        }
 		return  json_encode($dados);
 
 
@@ -131,7 +133,7 @@ class ProfessorController extends Controller
             'cel_edt' => 'required|min:14|max:14',
             'email_edt' => 'required|email|max:250',
         );
-   
+
 
         $messages=array(
             'nome_edt.required'=>'O campo nome é de preenchimento obrigátorio',
@@ -158,31 +160,31 @@ class ProfessorController extends Controller
             'logradouro_edt.min'=>'O campo logradouro deve ter no máximo 250 caracteres',
             'email_edt.email'=>'O campo email deve ser um email válido',
             'email_edt.unique'=>'Já existe este email cadastrado.',
-            
+
         );
-        
+
         $validator = Validator::make( $request->all(), $rules, $messages );
 
         if($validator->passes()){
-                $id= Input::get('custId');	
+                $id= Input::get('custId');
                 $date = \Carbon\Carbon::now();
                 $professor = new ProfessorModel;
                 $professor = ProfessorModel::findOrFail($id);
                 $professor->nome = Input::get('nome_edt');
                 $professor->data_nascimento = Input::get('dt_nasc_edt');
                 $professor->cep = Input::get('cep_edt');
-                $professor->logradouro = Input::get('logradouro_edt');	
-                $professor->bairro = Input::get('bairro_edt');	
-                $professor->numero = Input::get('numero_edt');	
-                $professor->estado = Input::get('selectEstado_edt');	
+                $professor->logradouro = Input::get('logradouro_edt');
+                $professor->bairro = Input::get('bairro_edt');
+                $professor->numero = Input::get('numero_edt');
+                $professor->estado = Input::get('selectEstado_edt');
                 $professor->cidade = Input::get('selectCidade_edt');
                 $professor->telefone = Input::get('tel_edt');
                 $professor->celular = Input::get('cel_edt');
                 $professor->email = Input::get('email_edt');
                 $professor->data_att =$date;
-                $professor->status =1;		
+                $professor->status =1;
                 $professor->save();
-        
+
                 return response()->json(['success'=>'Added new records.']);
 
         }
@@ -199,13 +201,13 @@ class ProfessorController extends Controller
         }
             $date = \Carbon\Carbon::now();
             $professor = new ProfessorModel;
-            
+
             $professor = ProfessorModel::findOrFail($id);
             $professor->data_att =$date;
-            $professor->status =$status;		
+            $professor->status =$status;
             $professor->save();
             return response()->json(['success'=>'Added new records.']);
-         
+
 
     }
 
