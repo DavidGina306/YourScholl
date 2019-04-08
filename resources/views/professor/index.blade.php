@@ -877,7 +877,7 @@
         $("#btnEdit").click(function () {
             //console.log("save");
               id= $('#custId').val();
-              url = '/professores/editar/'
+              url = '/professores/editar'
               form = '#f_edit_prof';
               table = $('#prof_table').DataTable();
               $.ajax({
