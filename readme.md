@@ -93,6 +93,10 @@ Este comando cria o arquivo .env logo após a criação na pasta raiz,configureo
 
 ## Modelagem do Banco de Dados
 
+
+![your_school](https://user-images.githubusercontent.com/39013655/55721775-380ea980-59d2-11e9-845f-8fcb91f645b9.jpg)
+
+
    
     
     
